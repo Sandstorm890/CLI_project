@@ -1,5 +1,6 @@
 require_relative "../lib/get_body.rb"
 require_relative "../lib/recipe.rb"
+require_relative "../lib/run_class.rb"
 require 'bundler/setup'
 require 'net/http'
 require 'open-uri'

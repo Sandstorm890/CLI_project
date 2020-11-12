@@ -28,9 +28,28 @@ class Recipe
         end
     end
 
-    def self.ingredients
-        
+    def self.names_with_index(input_recipes)
+        recipes = []
+        input_recipes.each do |recipe|
+            recipes << recipe[:strMeal]
+        end
+        recipes.each_with_index {|recipe, index| puts "#{index+1}. #{recipe}"}
     end
+
+    def self.create_new_recipes(recipes)
+        recipes.each do |recipe|
+            new_recipe = Recipe.new(recipe)
+        end
+    end
+
+    def self.clear
+        @@all.clear
+    end
+
+    # def self.get_id(index)
+    #     @@all[index][:idMeal]
+
+    # end
 
 end
 
