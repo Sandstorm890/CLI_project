@@ -46,10 +46,5 @@ class Recipe
         @@all.clear
     end
 
-    # def self.get_id(index)
-    #     @@all[index][:idMeal]
-
-    # end
-
 end
 
