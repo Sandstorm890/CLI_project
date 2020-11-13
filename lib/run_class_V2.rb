@@ -36,24 +36,36 @@ class Run
         end
     end
 
+    def self.ask_if_done
+        puts "\n\nWould you like another recipe? (y/n)"
+        user_input
+        if @input == "y"
+            initial_input
+            get_results
+        else
+            nil
+        end
+    end
+
     def self.get_results
 
         if @input == "region" || @input == "area" || @input == "category"
             old_stored_input = @input
             puts "\nSure! What would you like to search for?"
+            puts "i.e. Mexican, Chinese, etc." if @input == "region" || @input == "area"
+            puts "i.e. seafood, beef, etc." if @input == "category"
             user_input
-            get_region = GetRequest.new(GetRequest.get_url(old_stored_input, @input)).response_json["meals"]
+            get_recipes = GetRequest.new(GetRequest.get_url(old_stored_input, @input)).response_json["meals"]
             
-            if get_region == nil
+            if get_recipes == nil
                 puts "\nCouldn't find any matching recipes!\n"
                 initial_input
                 get_results(@input)
             else
                 
-        
                 puts "\nHere are some matching recipes:\n---"
                 
-                Recipe.names_with_index(Recipe.create_new_recipes(get_region))
+                Recipe.names_with_index(Recipe.create_new_recipes(get_recipes))
         
                 puts "\nWhich recipe would you like to open? (please enter a number)\n"
                 recipe_selection = integer_input
@@ -65,6 +77,7 @@ class Run
                 else
                     Recipe.create_new_recipes(GetRequest.new("https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{Recipe.all[recipe_selection].idMeal}").response_json["meals"])
                     puts "\n#{Recipe.all.last.strMeal}\n---\nInstructions:\n#{Recipe.all.last.strInstructions}"
+                    ask_if_done
                 end
             end
 
@@ -78,7 +91,7 @@ class Run
                 initial_input
                 get_results(@input)
             else
-                puts "Here are some recipes with #{@input} in the name:\n---"
+                puts "Here are some recipes with '#{@input}' in the name:\n---"
                 Recipe.names_with_index(Recipe.create_new_recipes(returned_recipes))
                 
                 puts "\nWhich recipe would you like to open? (please enter a number)\n"
@@ -90,6 +103,9 @@ class Run
 
                 else
                     puts "\n#{Recipe.all[recipe_selection].strMeal}\n---\nInstructions:\n#{Recipe.all[recipe_selection].strInstructions}"
+                    puts "\n\nWould you like another recipe? (y/n)"
+                    user_input
+                    ask_if_done
                 end
             end
         end
