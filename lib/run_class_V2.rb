@@ -60,7 +60,7 @@ class Run
         
         if recipes.length < selection || selection < 0
             puts "Invalid selection"
-            make_meal_selection
+            make_meal_selection(Recipe.names)
         else
             selection
         end
