@@ -8,16 +8,16 @@ Description:
 
 This command line interface application takes user input and allows the user to select a recipe based on a variety of search parameters,
 including by region, by category, or by name (default search mode). It then returns the results in a numbered list, and allows the user to make a selection
-from that list in which to view the recipe, after which the user is prompted to search for another recipe if they wish. THis application interfaces with the
-TheMealDB.com API in order top return meal names and accompanying recipes.
+from that list in which to view the recipe, after which the user is prompted to search for another recipe if they wish. This application interfaces with the
+TheMealDB.com API in order to return meal names and accompanying recipes.
 
 Install Instructions:
 
-All required gems are listed in the Gemfile. Run 'bundle install' in your terminal with bundle intalled to download the necessary dependancies.
+All required gems are listed in the Gemfile. Run 'bundle install' in your terminal with 'bundle' intalled to download the necessary dependancies.
 
 Contributor's Guide:
 
-In its current interation, there are no plans to maintain or update this application in the future. If you want to make changes, create
+In its current interation, there are no plans to maintain or otherwise update this application in the future. If you want to make changes, create
 a new branch and help yourself.
 
 
