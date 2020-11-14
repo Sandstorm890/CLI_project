@@ -57,8 +57,9 @@ class Run
         puts "\nWhich recipe would you like to open? (please enter a number)\n"
 
         selection = integer_input
-        
-        if recipes.length < selection || selection < 0
+
+        # binding.pry
+        if recipes.length <= selection || selection < 0
             puts "Invalid selection"
             make_meal_selection(Recipe.names)
         else
@@ -116,7 +117,6 @@ class Run
                 
             end
         end
-        
     end
 end
 

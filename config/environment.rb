@@ -7,4 +7,4 @@ require 'net/http'
 require 'open-uri'
 require 'json'
 require "awesome_print"
-# require 'pry'
+require 'pry'
