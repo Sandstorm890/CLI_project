@@ -4,6 +4,9 @@ Zayne Goering
 
 -----------------------------------------------
 
+Video Walkthrough:
+https://youtu.be/FszK126Xsf0
+
 Description:
 
 This command line interface application takes user input and allows the user to select a recipe based on a variety of search parameters,
